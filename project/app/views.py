@@ -16,9 +16,10 @@ def index(request):
 
 
 def counter(request):
-    words = request.POST['words']
-    amount = len(words.split())
-    return render(request, 'counter.html', {'amount': amount})
+    posts = [1, 2, 3, 4, 5, 'tim', 'john']
+    # words = request.POST['words']
+    # amount = len(words.split())
+    return render(request, 'counter.html', {'posts': posts})
 
 
 def register(request):
@@ -69,3 +70,7 @@ def login(request):
 def logout(request):
     auth.logout(request)
     return redirect('/')
+
+
+def post(request, pk):
+    return render(request, 'post.html', {'pk': pk})
