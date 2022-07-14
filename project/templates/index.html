@@ -31,6 +31,11 @@
     </head>
     <body>
         <div class="jumbotron">
+            {% if user.is_authenticated %}
+            <h1>Welcome to site, {{user.username}}</h1>
+            {% else %}
+            <h1>Welcome to site!</h1>
+            {% endif %}
             <h1>Input yout text</h1>
             <div class="container">
                 <div class="row align-items-center">
@@ -51,6 +56,17 @@
                 <br />
                 <input type="submit" />
             </form>
+
+            <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore tempora repudiandae cumque, blanditiis tempore aut dolorem consectetur at deserunt natus perferendis dolores nulla veritatis culpa pariatur harum facere temporibus atque.</h2>
+            {% if user.is_authenticated %}
+            <a href="logout">
+            <button>Log out</button>
+            </a>
+            {% else %}
+            <a href="login">
+            <button>Log in</button>
+            </a>
+            {% endif %}
         </div>
     </body>
 </html>
